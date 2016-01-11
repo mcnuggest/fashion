@@ -19,7 +19,7 @@ class ProductController {
         def searchClosure = {
             if (params.search) {
                 or{
-                    like('produ ctName', "%${params.search}%")
+                    like('productName', "%${params.search}%")
                     eq('productCode', params.search)
                 }
             }
@@ -29,7 +29,6 @@ class ProductController {
         def productlist =  c.list (params, searchClosure)
         [products: productlist, total: productlist.totalCount]
     }
-    
     def create() {
         def p =new Product()
         render(template: '/work/product/form', model:[product:p, action: "create"])
