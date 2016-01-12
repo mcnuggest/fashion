@@ -96,20 +96,26 @@
 
                     <div class="form-group">
                         <label for="payTime">付款时间</label>
-                        <input id="payTime" class="form-control money" type="datetime" placeholder="选填项" name="payTime"
-                               value="${orderInfo?.payTime}">
+                        <g:datePicker name="payTime" value="${orderInfo?.payTime}" precision="day"
+                                      years="${1930..3000}"/>
+                        %{--<input id="payTime" class="form-control money" type="datetime" placeholder="选填项" name="payTime"--}%
+                               %{--value="${orderInfo?.payTime}">--}%
                     </div>
 
                     <div class="form-group">
                         <label for="verifyTime">确认时间</label>
-                        <input id="verifyTime" class="form-control money" type="text" placeholder="选填项"
-                               name="verifyTime" value="${orderInfo?.verifyTime}">
+                        <g:datePicker name="verifyTime" value="${orderInfo?.verifyTime}" precision="day"
+                                      years="${1930..3000}"/>
+                        %{--<input id="verifyTime" class="form-control money" type="text" placeholder="选填项"--}%
+                               %{--name="verifyTime" value="${orderInfo?.verifyTime}">--}%
                     </div>
 
                     <div class="form-group">
                         <label for="deliveryTime">发货时间</label>
-                        <input id="deliveryTime" class="form-control money" type="text" placeholder="选填项"
-                               name="deliveryTime" value="${orderInfo?.deliveryTime}">
+                        <g:datePicker name="deliveryTime" value="${orderInfo?.deliveryTime}" precision="day"
+                                      years="${1930..3000}"/>
+                        %{--<input id="deliveryTime" class="form-control money" type="text" placeholder="选填项"--}%
+                               %{--name="deliveryTime" value="${orderInfo?.deliveryTime}">--}%
                     </div>
 
                     <div class="form-group">
@@ -126,14 +132,18 @@
 
                     <div class="form-group">
                         <label for="verifyReceiveTime">收货确认时间</label>
-                        <input id="verifyReceiveTime" class="form-control money" type="text" placeholder="选填项"
-                               name="verifyReceiveTime" value="${orderInfo?.verifyReceiveTime}">
+                        <g:datePicker name="verifyReceiveTime" value="${orderInfo?.verifyReceiveTime}" precision="day"
+                                      years="${1930..3000}"/>
+                        %{--<input id="verifyReceiveTime" class="form-control money" type="text" placeholder="选填项"--}%
+                               %{--name="verifyReceiveTime" value="${orderInfo?.verifyReceiveTime}">--}%
                     </div>
 
                     <div class="form-group">
                         <label for="closeTime">订单结束时间</label>
-                        <input id="closeTime" class="form-control money" type="text" placeholder="选填项" name="closeTime"
-                               value="${orderInfo?.closeTime}">
+                        <g:datePicker name="closeTime" value="${orderInfo?.closeTime}" precision="day"
+                                      years="${1930..3000}"/>
+                        %{--<input id="closeTime" class="form-control money" type="text" placeholder="选填项" name="closeTime"--}%
+                               %{--value="${orderInfo?.closeTime}">--}%
                     </div>
 
                     <div class="form-group">
