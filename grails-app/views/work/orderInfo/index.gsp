@@ -46,20 +46,20 @@
                 <form id="form" method="post" action="/work/orderInfo/index.do">
                     <div class="box box-primary">
                         <div class="box-header">
-                            <h3 class="box-title">现有订单信息(共有${total}条记录)</h3>
+                            <h3 class="box-title">现有订单(共有<span id="domainTotalCount">${total}</span>条记录)</h3>
 
-                            <div class="box-tools">
-                                <div class="input-group">
-                                    <input type="text" name="search" class="form-control input-sm pull-right"
-                                           style="width: 150px;" placeholder="订单代码/名字"
-                                           value="${params.search != null ? params.search : ""}"/>
+                            %{--<div class="box-tools">--}%
+                                %{--<div class="input-group">--}%
+                                    %{--<input type="text" name="search" class="form-control input-sm pull-right"--}%
+                                           %{--style="width: 150px;" placeholder="订单代码/名字"--}%
+                                           %{--value="${params.search != null ? params.search : ""}"/>--}%
 
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-sm btn-default"><i
-                                                class="fa fa-search"></i></button>
-                                    </div>
-                                </div>
-                            </div>
+                                    %{--<div class="input-group-btn">--}%
+                                        %{--<button type="submit" class="btn btn-sm btn-default"><i--}%
+                                                %{--class="fa fa-search"></i></button>--}%
+                                    %{--</div>--}%
+                                %{--</div>--}%
+                            %{--</div>--}%
                         </div><!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
                             <table id="orderInfoTable" class="table table-hover table-bordered table-striped">
@@ -87,7 +87,7 @@
                                     <th>操作</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="domainTableTbody">
                                 <g:each in="${orderInfos}">
                                     <tr id="tr_${it.id}">
                                         <td id="td_orderCode_${it.id}">${it.orderCode}</td>
@@ -223,32 +223,32 @@
                     html += "<td id=\"td_spreaderID_" + bdata.orderInfo.id + "\">" + bdata.orderInfo.spreaderID + "</td>";
                     html += "<td id=\"td_dateCreated_" + bdata.orderInfo.id + "\">" + bdata.orderInfo.dateCreated + "</td>";
                     html += "<td>";
-                    html += "    <i class=\"fa fa-edit fa-2x\" style=\"cursor:pointer\" title=\"编辑\" onclick=\"editProduct('" + bdata.orderInfo.id + "')\"></i>";
-                    html += "    <i class=\"fa fa-trash fa-2x\" style=\"cursor:pointer\" title=\"删除\" onclick=\"delProduct('" + bdata.orderInfo.id + "')\"></i>";
+                    html += "<i class=\"fa fa-edit fa-2x\" style=\"cursor:pointer\" title=\"编辑\" onclick=\"editProduct('" + bdata.orderInfo.id + "')\"></i>";
+                    html += "<i class=\"fa fa-trash fa-2x\" style=\"cursor:pointer\" title=\"删除\" onclick=\"delProduct('" + bdata.orderInfo.id + "')\"></i>";
                     html += "</td>";
                     html += "</tr>";
                     $("#domainTableTbody").prepend(html);
                     $("#domainTotalCount").html(parseInt($("#domainTotalCount").html()) + 1)
                 } else if (domainAction == "edit") {
                     $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.orderCode);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.customerID);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.orderTime);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.totalPrice);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.deductionPoint);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.coupondID);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.payPrice);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.deliveryAddressID);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.status);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.payTime);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.paymentID);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.verifyTime);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.deliveryTime);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.logisticCompany);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.logisticNumber);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.verifyReceiveTime);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.closeTime);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.spreaderID);
-                    $("#td_orderCode_" + bdata.orderInfo.id).html(bdata.orderInfo.dateCreated);
+                    $("#td_customerID_" + bdata.orderInfo.id).html(bdata.orderInfo.customerID);
+                    $("#td_orderTime_" + bdata.orderInfo.id).html(bdata.orderInfo.orderTime);
+                    $("#td_totalPrice_" + bdata.orderInfo.id).html(bdata.orderInfo.totalPrice);
+                    $("#td_deductionPoint_" + bdata.orderInfo.id).html(bdata.orderInfo.deductionPoint);
+                    $("#td_coupondID_" + bdata.orderInfo.id).html(bdata.orderInfo.coupondID);
+                    $("#td_payPrice_" + bdata.orderInfo.id).html(bdata.orderInfo.payPrice);
+                    $("#td_deliveryAddressID_" + bdata.orderInfo.id).html(bdata.orderInfo.deliveryAddressID);
+                    $("#td_status_" + bdata.orderInfo.id).html(bdata.orderInfo.status);
+                    $("#td_payTime_" + bdata.orderInfo.id).html(bdata.orderInfo.payTime);
+                    $("#td_paymentID_" + bdata.orderInfo.id).html(bdata.orderInfo.paymentID);
+                    $("#td_verifyTime_" + bdata.orderInfo.id).html(bdata.orderInfo.verifyTime);
+                    $("#td_deliveryTime_" + bdata.orderInfo.id).html(bdata.orderInfo.deliveryTime);
+                    $("#td_logisticCompany_" + bdata.orderInfo.id).html(bdata.orderInfo.logisticCompany);
+                    $("#td_logisticNumber_" + bdata.orderInfo.id).html(bdata.orderInfo.logisticNumber);
+                    $("#td_verifyReceiveTime_" + bdata.orderInfo.id).html(bdata.orderInfo.verifyReceiveTime);
+                    $("#td_closeTime_" + bdata.orderInfo.id).html(bdata.orderInfo.closeTime);
+                    $("#td_spreaderID_" + bdata.orderInfo.id).html(bdata.orderInfo.spreaderID);
+                    $("#td_dateCreated_" + bdata.orderInfo.id).html(bdata.orderInfo.dateCreated);
 
 
                 }

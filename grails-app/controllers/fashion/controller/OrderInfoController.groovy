@@ -17,7 +17,7 @@ class OrderInfoController {
         def searchClosure = {
             if (params.search) {
                 or{
-                    //like('orderCode', "%${params.search}%")
+                    like('orderCode', "%${params.search}%")
                     eq('orderCode', params.search)
                 }
             }
