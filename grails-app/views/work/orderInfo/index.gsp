@@ -2,10 +2,21 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-            订单信息管理
-            <small>管理所有订单</small>
-        </h1>
+        <div style="float: left;margin-right: 30px;">
+            <h1>
+                订单信息管理
+                <small>管理所有订单</small>
+            </h1>
+        </div>
+
+        <div>
+            <h1>
+                <button class="btn btn-primary" onclick="createProduct();">
+                    <i class="fa fa-plus"></i>
+                    添加订单信息
+                </button>
+            </h1>
+        </div>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i> 主页</a></li>
             <li><g:link controller="orderInfo" action="index" base="/work">订单管理</g:link></li>
@@ -15,12 +26,20 @@
     <!-- Main content -->
     <section class="content">
         <g:render template="/share/pageMessage"/>
-        <h2 class="page-header">
-            <button class="btn btn-primary" onclick="createProduct();">
-                <i class="fa fa-plus"></i>
-                添加订单信息
-            </button>
-        </h2>
+        <div style="margin-bottom: 70px">
+            <div style="float: left" class="input-group">
+                <input type="text" name="search" class="form-control input-sm "
+                       style="width: 150px;" placeholder="订单代码/名字"
+                       value="${params.search != null ? params.search : ""}"/>
+
+                <div style="float: left">
+                    <button type="submit" class="btn btn-sm btn-default"><i
+                            class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+
 
         <div class="row">
             <div class="col-xs-12">
