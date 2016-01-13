@@ -2,6 +2,7 @@ package fashion.controller
 
 import fashion.domain.OrderInfo
 import grails.converters.JSON
+import sun.security.provider.MD5
 
 class OrderInfoController {
     static layout = 'work/main'
@@ -13,6 +14,8 @@ class OrderInfoController {
         if (!params.offset) params.offset = 0
         if (!params.order) params.order = "desc"
         if (!params.sort) params.sort = "dateCreated"
+
+        def a = new MD5()
 
         def searchClosure = {
             if (params.search) {

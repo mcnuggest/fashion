@@ -32,3 +32,16 @@ function enabledBtn(btn, isEnable) {
         $(btn).addClass("hide");
     }
 }
+
+function fixPaginationA() {
+        $(".pagination a").each(function( index ) {
+            var href = $(this).attr("href");
+            $(this).attr("href","#");
+            $(this).on("click",function() {
+                var reg = /offset=(\d+)&/g;
+                var result = reg.exec(href);
+                $("#offset").val(result[1]);
+                loadPage();
+            });
+        });        
+    }

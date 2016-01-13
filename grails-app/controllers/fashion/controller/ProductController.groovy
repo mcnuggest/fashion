@@ -10,28 +10,18 @@ class ProductController {
     static namespace = 'work'
     def productService
 
-    def index() {
-        if (!params.max) params.max = 2 //g.meta(['name':'datalist.max'])
-        if (!params.offset) params.offset = 0
-        if (!params.order) params.order = "desc"
-        if (!params.sort) params.sort = "dateCreated"
-
-        def searchClosure = {
-            if (params.search) {
-                or{
-                    like('productName', "%${params.search}%")
-                    eq('productCode', params.search)
-                }
-            }
-        }
-        
-        def c = Product.createCriteria()
-        def productlist =  c.list (params, searchClosure)
-        [products: productlist, total: productlist.totalCount]
+    def loadPage() {
+        def result = search(params)
+        render(template: "/${namespace}/${params.controller}/box_list_table", model:[products:result.products, total: result.total])
     }
+
+    def index() {
+        search(params)
+    }
+    
     def create() {
         def p =new Product()
-        render(template: '/work/product/form', model:[product:p, action: "create"])
+        render(template: "/${namespace}/${params.controller}/form", model:[product:p, action: "create"])
     }
     
     def delete() {
@@ -46,7 +36,7 @@ class ProductController {
     def update() {}
     
     def edit() {
-        render(template: '/work/product/form', model:[product: Product.get(params.id), action: "edit"])
+        render(template: "/${namespace}/${params.controller}/form", model:[product: Product.get(params.id), action: "edit"])
     }
     
     def show() {
@@ -60,11 +50,9 @@ class ProductController {
         withForm {    
             log.error(params)        
             if (params.domainAction == 'edit') {
-                log.error("edit ${p}")
                 p = Product.get(params.id)
                 p.properties = params
             } else if(params.domainAction == 'create'){
-                log.error("create ${p}")
                 p = new Product(params)
             }
             if (!p.validate()) {
@@ -91,5 +79,25 @@ class ProductController {
         render(contentType: "application/json") {
             productService.listdata(params)
         }
+    }
+
+    private def search(params) {
+        if (!params.max) params.max = 2 //g.meta(['name':'datalist.max']).toInteger()
+        if (!params.offset) params.offset = 0
+        if (!params.order) params.order = "desc"
+        if (!params.sort) params.sort = "dateCreated"
+
+        def searchClosure = {
+            if (params.productName) {
+                like('productName', "%${params.productName}%")
+            }
+            if (params.productCode) {
+                eq('productCode', params.productCode)
+            }            
+        }
+        
+        def c = Product.createCriteria()
+        def productlist =  c.list (params, searchClosure)
+        [products: productlist, total: productlist.totalCount]        
     }
 }
