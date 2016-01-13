@@ -78,7 +78,6 @@ class ProductController {
     def listdata() {
         render(contentType: "application/json") {
             productService.listdata(params)
-
         }
     }
 
