@@ -5,5 +5,5 @@
         <a href="#"><i class="fa fa-life-ring text-success"></i> 帮助</a>
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2015 <a href="#"><g:meta name="info.app.displayName"/></a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2016 <a href="#">服装设计平台</a>.</strong> All rights reserved.
 </footer>

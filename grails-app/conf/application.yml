@@ -1,6 +1,5 @@
 server:
     port: 8080
-#     'contextPath': '/fashion'
 ---
 datalist:
     max: 10
@@ -9,7 +8,7 @@ info:
         name: '@info.app.name@'
         version: '@info.app.version@'
         grailsVersion: '@info.app.grailsVersion@'
-        displayName: '微尚'
+        displayName: '服装设计平台'
 spring:
     groovy:
         template:
@@ -91,22 +90,22 @@ dataSource:
     dialect: org.hibernate.dialect.MySQL5InnoDBDialect    
     driverClassName: com.mysql.jdbc.Driver
     username: root
-    password: 56557577
+    password: 123456
     jmxExport: true
 
 environments:
     development:
         dataSource:
             dbCreate: update
-            url: jdbc:mysql://localhost:3306/fashion_development?useUnicode=true&characterEncoding=UTF-8
+            url: jdbc:mysql://localhost:3306/clothes?useUnicode=true&characterEncoding=UTF-8
     test:
         dataSource:
             dbCreate: update
-            url: jdbc:mysql://localhost:3306/fashion_test?useUnicode=true&characterEncoding=UTF-8
+            url: jdbc:mysql://localhost:3306/clothes?useUnicode=true&characterEncoding=UTF-8
     production:
         dataSource:
             dbCreate: update
-            url: jdbc:mysql://localhost:3306/fashion_production?useUnicode=true&characterEncoding=UTF-8
+            url: jdbc:mysql://localhost:3306/clothes?useUnicode=true&characterEncoding=UTF-8
             properties:
                 jmxEnabled: true
                 initialSize: 5
