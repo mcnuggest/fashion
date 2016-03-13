@@ -17,31 +17,61 @@
 
         <div class="col-md-2">
             <p>款式风格</p>
+            <img class="img-thumbnail" src="${resource(dir: 'assets/img', file: 'avatar5.png')}">
+            <g:select name="kuanshifengge"
+                      from="${['简洁', '民族', '休闲', '都市', '田园', '独特', '绚彩', '其他']}"
+                      keys="[0, 1, 2, 3, 4, 5, 6, 7]"
+                      noSelection="['':'-请选择您的款式风格-']"/>
             <br/>
         </div>
 
         <div class="col-md-2">
             <p>款式类型</p>
+            <img class="img-thumbnail" src="${resource(dir: 'assets/img', file: 'avatar5.png')}">
+            <g:select name="kuanshileixing"
+                      from="${['衬衣', '风衣', '裙', '旗袍', '礼服', '婚纱', '外套', '马甲', '毛衣', '打底衫', '卫衣', '其他']}"
+                      keys="[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]"
+                      noSelection="['':'-请选择您的款式类型-']"/>
             <br/>
         </div>
 
         <div class="col-md-2">
             <p>穿着季节</p>
+            <img class="img-thumbnail" src="${resource(dir: 'assets/img', file: 'avatar5.png')}">
+            <g:select name="chuanzhuojijie"
+                      from="${['夏季', '春秋', '其他']}"
+                      keys="[0, 1, 2]"
+                      noSelection="['':'-请选择您的穿着季节-']"/>
             <br/>
         </div>
 
         <div class="col-md-2">
             <p>穿着场合</p>
+            <img class="img-thumbnail" src="${resource(dir: 'assets/img', file: 'avatar5.png')}">
+            <g:select name="chuanzhuochanghe"
+                      from="${['休闲', '办公', '宴会', '家居']}"
+                      keys="[0, 1, 2, 3]"
+                      noSelection="['':'-请选择您的穿着场合-']"/>
             <br/>
         </div>
 
         <div class="col-md-2">
             <p>面料类型</p>
+            <img class="img-thumbnail" src="${resource(dir: 'assets/img', file: 'avatar5.png')}">
+            <g:select name="mianliaoleixing"
+                      from="${['毛', '丝', '麻', '皮草', '针织', '人造纤维']}"
+                      keys="[0, 1, 2, 3, 4, 5]"
+                      noSelection="['':'-请选择您的面料类型-']"/>
             <br/>
         </div>
 
         <div class="col-md-2">
             <p>配饰</p>
+            <img class="img-thumbnail" src="${resource(dir: 'assets/img', file: 'avatar5.png')}">
+            <g:select name="peishi"
+                      from="${['围巾', '帽', '鞋', '其他']}"
+                      keys="[0, 1, 2, 3]"
+                      noSelection="['':'-请选择您的配饰-']"/>
             <br/>
         </div>
 
