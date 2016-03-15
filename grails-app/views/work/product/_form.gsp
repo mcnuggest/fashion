@@ -26,7 +26,7 @@
                     </div>
                 </div><!-- /.box-body -->
                 <div class="box-footer">
-                    <a class="btn btn-info" href="/work/product/create">
+                    <a class="btn btn-info" href="/work/create">
                         <i class="fa fa-expand"></i>
                         其他功能
                     </a>

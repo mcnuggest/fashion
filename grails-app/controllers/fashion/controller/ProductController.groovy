@@ -9,7 +9,6 @@ class ProductController {
     static layout = 'work/main'
     static namespace = 'work'
     def productService
-    def ys33333
 
     def loadPage() {
         def result = search(params)
